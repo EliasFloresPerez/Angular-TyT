@@ -1,0 +1,25 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidebar-header">
+      Panel de Control
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Módulos</div>
+      <mat-nav-list>
+        <a mat-list-item routerLink="" class="sidebar-link">Dashboard</a>
+        <a mat-list-item routerLink="" class="sidebar-link">Perfil</a>
+        <a mat-list-item routerLink="" class="sidebar-link">Ajustes</a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="top-toolbar">
+      Dashboard Principal
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

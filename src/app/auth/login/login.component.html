@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Login</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="vm.model.email" placeholder="Email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="vm.model.password" placeholder="Password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="vm.login()" [disabled]="vm.loading">
+    Iniciar sesión
+  </button>
+
+  <button mat-button routerLink="/register">
+    Crear cuenta
+  </button>
+
+  <div *ngIf="vm.error" class="error-message">{{ vm.error }}</div>
+</div>

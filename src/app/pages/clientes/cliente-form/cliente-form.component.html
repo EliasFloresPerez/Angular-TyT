@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>{{ id ? 'Editar Cliente' : 'Crear Cliente' }}</h2>
+
+  <div class="form-grid">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="vm.model.name" placeholder="Nombre">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="vm.model.email" placeholder="Email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input matInput [(ngModel)]="vm.model.phone" placeholder="Teléfono">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dirección</mat-label>
+      <input matInput [(ngModel)]="vm.model.address" placeholder="Dirección">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="guardar()" [disabled]="vm.loading$.value">
+    {{ id ? 'Actualizar' : 'Crear' }}
+  </button>
+
+  <button mat-button class="back-button" (click)="volver()">Volver</button>
+
+  <div *ngIf="vm.error$.value" class="error-message">{{ vm.error$.value }}</div>
+</div>

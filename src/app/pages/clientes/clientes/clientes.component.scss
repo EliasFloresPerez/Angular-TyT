@@ -1,0 +1,83 @@
+.container {
+  padding: 24px;
+  
+  margin: 0px auto;
+  max-width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-weight: 700;
+  color: #1c1c1e;
+  text-align: center;
+}
+
+.crear-btn {
+  background-color: #40c4a7;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.crear-btn:hover {
+  background-color: #25bf7c;
+}
+
+.clientes-table {
+  width: 100%; 
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+
+  th, td {
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #e0f0ff;
+    color: #004085;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  tr:hover {
+    background-color: #dbeeff;
+  }
+}
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.actions-cell button.mat-icon-button {
+  background-color: #f4faff;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.actions-cell button.mat-icon-button:hover {
+  background-color: #d0ebff;
+  transform: scale(1.1);
+}

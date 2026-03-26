@@ -1,0 +1,65 @@
+:host {
+  display: block;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 32px 24px;
+  margin: 50px auto;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.form-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+::ng-deep mat-form-field {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+::ng-deep input.mat-input-element {
+  background-color: #f4faff;
+  border-radius: 12px;
+  padding: 12px 10px;
+}
+
+.btn-register {
+  background-color: #40c4a7;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px 0;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.btn-register:hover {
+  background-color: #25bf7c;
+}
+
+.btn-back {
+  color: #1c1c1e;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.error-message {
+  color: #e53935;
+  font-weight: 500;
+  text-align: center;
+}
