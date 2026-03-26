@@ -1,0 +1,140 @@
+<div class="container">
+
+  <div class="header">
+    <h2>Órdenes</h2>
+    <button mat-raised-button color="primary" class="crear-btn" (click)="crearOrden()">
+      Crear Orden
+    </button>
+  </div>
+
+  <div class="filters">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cliente</mat-label>
+      <input matInput type="number"
+             [(ngModel)]="vm.filters.clientId"
+             (ngModelChange)="onFilterChange('clientId', $event)"
+             name="clientId">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select [(ngModel)]="vm.filters.status"
+                  (selectionChange)="onFilterChange('status', $event.value)"
+                  name="status">
+        <mat-option [value]="undefined">Todos</mat-option>
+        <mat-option [value]="0">Pendiente</mat-option>
+        <mat-option [value]="1">Completado</mat-option>
+        <mat-option [value]="2">Cancelado</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Desde</mat-label>
+      <input matInput [matDatepicker]="pickerFrom"
+             [(ngModel)]="vm.filters.fromDate"
+             (dateChange)="onFilterChange('fromDate', $any($event.value))"
+             name="fromDate">
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Hasta</mat-label>
+      <input matInput [matDatepicker]="pickerTo"
+             [(ngModel)]="vm.filters.toDate"
+             (dateChange)="onFilterChange('toDate', $any($event.value))"
+             name="toDate">
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button
+            color="warn"
+            type="button"
+            class="clear-btn"
+            (click)="limpiarFiltros()">
+    <mat-icon>cleaning_services</mat-icon>
+    Limpiar
+    </button>
+  </div>
+
+  <div *ngIf="vm.loading$ | async" class="loading">
+    Cargando órdenes...
+  </div>
+
+  <table mat-table [dataSource]="(vm.orders$ | async) || []" class="clientes-table">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let o">{{ o.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="clientId">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let o">{{ o.clientId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalAmount">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let o">{{ o.totalAmount }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let o">
+        <span class="status-chip"
+              [ngClass]="{
+                'pending': o.status === 0,
+                'completed': o.status === 1,
+                'cancelled': o.status === 2
+              }">
+          {{
+            o.status === 0 ? 'Pendiente' :
+            o.status === 1 ? 'Completado' :
+            'Cancelado'
+          }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let o">
+        {{ o.createdAt | date:'short' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let o" class="actions-cell">
+
+        <button mat-icon-button color="accent" (click)="editarTotal(o)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="primary" (click)="completarOrden(o.id)">
+          <mat-icon>check</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="cancelarOrden(o.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="eliminarOrden(o.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['id','clientId','totalAmount','status','createdAt','actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id','clientId','totalAmount','status','createdAt','actions'];"></tr>
+
+  </table>
+
+  <div *ngIf="vm.error$ | async as error" class="error-message">
+    {{ error }}
+  </div>
+
+</div>

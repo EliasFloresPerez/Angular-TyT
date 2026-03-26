@@ -7,9 +7,11 @@
     <div class="sidebar-section">
       <div class="sidebar-section-title">Módulos</div>
       <mat-nav-list>
-        <a mat-list-item routerLink="" class="sidebar-link">Dashboard</a>
-        <a mat-list-item routerLink="" class="sidebar-link">Perfil</a>
-        <a mat-list-item routerLink="" class="sidebar-link">Ajustes</a>
+        <mat-nav-list>
+        <a mat-list-item routerLink="/app" class="sidebar-link">Dashboard</a>
+        <a mat-list-item routerLink="/clientes" class="sidebar-link">Clientes</a>
+        <a mat-list-item routerLink="/orders" class="sidebar-link">Órdenes</a>
+      </mat-nav-list>
       </mat-nav-list>
     </div>
   </mat-sidenav>

@@ -1,0 +1,71 @@
+:host {
+  display: block;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 32px 24px;
+  margin: 50px auto;
+  max-width: 500px; // 👈 un poco más compacto que clientes
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+/* GRID DEL FORM */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; // 👈 1 columna (más limpio para orders)
+  gap: 16px;
+}
+
+/* MATERIAL INPUTS */
+::ng-deep mat-form-field {
+  width: 100%;
+}
+
+::ng-deep input.mat-input-element {
+  background-color: #f7f9fa;
+  border-radius: 6px;
+  padding: 8px 10px;
+  height: 38px;
+  font-size: 14px;
+}
+
+/* BOTÓN GUARDAR */
+.btn-register {
+  background-color: #40c4a7;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 10px 0;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.btn-register:hover {
+  background-color: #25bf7c;
+}
+
+/* BOTÓN VOLVER */
+.btn-back {
+  color: #1c1c1e;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* ERROR */
+.error-message {
+  color: #e53935;
+  font-weight: 500;
+  text-align: center;
+}

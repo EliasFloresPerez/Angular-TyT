@@ -1,0 +1,47 @@
+<div class="dashboard">
+
+  <!-- Loading -->
+  <div *ngIf="vm.loading$ | async" class="loading">
+    Cargando dashboard...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="vm.error$ | async as error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Data -->
+  <div *ngIf="vm.dashboard$ | async as data">
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <span>Total Órdenes</span>
+        <h2>{{ data.totalOrders }}</h2>
+      </div>
+
+      <div class="card">
+        <span>Completadas</span>
+        <h2>{{ data.completedOrders }}</h2>
+      </div>
+
+      <div class="card">
+        <span>Pendientes</span>
+        <h2>{{ data.pendingOrders }}</h2>
+      </div>
+
+      <div class="card">
+        <span>Clientes Activos</span>
+        <h2>{{ data.activeClients }}</h2>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div echarts [options]="barChartOptions" class="chart"></div>
+      <div echarts [options]="pieChartOptions" class="chart"></div>
+      <div echarts [options]="lineChartOptions" class="chart full"></div>
+    </div>
+
+  </div>
+</div>

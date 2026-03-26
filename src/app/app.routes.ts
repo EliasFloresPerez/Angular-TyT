@@ -6,6 +6,9 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { AuthGuard } from '../Core/guard/AuthGuard';
 import { ClientesComponent } from './pages/clientes/clientes/clientes.component';
 import { ClienteFormComponent } from './pages/clientes/cliente-form/cliente-form.component';
+import { OrdersComponent } from './pages/orders/orders/orders.component';
+import { OrderFormComponent } from './pages/orders/order-form/order-form.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,18 +22,37 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: ClientesComponent
+        component: DashboardComponent
       }
     ]
   },
   {
   path: 'clientes',
-  component: MainLayoutComponent,
-  canActivate: [AuthGuard],
-  children: [
-    { path: '', component: ClientesComponent },
-    { path: 'crear', component: ClienteFormComponent },
-    { path: ':id', component: ClienteFormComponent }
-  ]
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: ClientesComponent },
+      { path: 'crear', component: ClienteFormComponent },
+      { path: ':id', component: ClienteFormComponent }
+    ]
+  },
+  {
+  path: 'orders',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: OrdersComponent },
+      { path: 'crear', component: OrderFormComponent }
+    ]
+  },
+  {
+    path: 'app',
+    component: MainLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent }
+    ]
 }
+  
 ];

@@ -1,0 +1,106 @@
+.container {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+.crear-btn {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.filters mat-form-field {
+  width: 160px;
+}
+
+.clear-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 0 16px;
+  transition: all 0.2s ease;
+}
+
+.clear-btn mat-icon {
+  font-size: 18px;
+}
+
+.clear-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+
+.clientes-table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+}
+
+.clientes-table th {
+  background: #eef6ff;
+  font-weight: 600;
+}
+
+.clientes-table td,
+.clientes-table th {
+  text-align: center;
+  padding: 12px;
+}
+
+.clientes-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.clientes-table tr:hover {
+  background: #f1f7ff;
+}
+
+.status-chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pending { background: #fff3cd; color: #856404; }
+.completed { background: #d1e7dd; color: #0f5132; }
+.cancelled { background: #f8d7da; color: #842029; }
+
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.loading,
+.error-message {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.error-message {
+  color: #d32f2f;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Crear Orden</h2>
+
+  <form>
+
+    <div class="form-grid">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cliente ID</mat-label>
+        <input matInput type="number" [(ngModel)]="vm.model.clientId" name="clientId" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Total</mat-label>
+        <input matInput type="number" [(ngModel)]="vm.model.totalAmount" name="totalAmount">
+      </mat-form-field>
+
+    </div>
+
+    <button mat-raised-button class="btn-register" (click)="guardar()">
+      Guardar
+    </button>
+
+    <button mat-button class="btn-back" (click)="volver()">
+      Volver
+    </button>
+
+  </form>
+
+  <div *ngIf="vm.error$ | async as error" class="error-message">
+    {{ error }}
+  </div>
+</div>

@@ -1,0 +1,86 @@
+// dashboard.component.scss
+
+.dashboard {
+  padding: 20px;
+  background: transparent; // hereda el #e8f0f5 del layout
+  min-height: 100vh;
+  color: #1c1c1e;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  color: #5b7da3;
+  padding: 40px 0;
+}
+
+.error {
+  color: #993c1d;
+  background: #faece7;
+  border: 0.5px solid #f0997b;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+
+  .card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    border: 0.5px solid #d0e3f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    span {
+      font-size: 12px;
+      color: #5b7da3;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: 600;
+      color: #185FA5;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      border-color: #a8c8e8;
+    }
+  }
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  .chart {
+    height: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 0.5px solid #d0e3f0;
+    padding: 16px;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .full {
+    grid-column: span 2;
+    height: 400px;
+  }
+}
